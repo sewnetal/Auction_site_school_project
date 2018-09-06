@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+   <table width="60%" bgcolor="#f0f8ff" border="1" align="center">
+  <thead>
+    <tr bgcolor="#2f4f4f">
+      <th>Title</th>
+      <th>category</th>
+      <th>Current Price</th>
+      <th>Status</th>
+      <th>Start Date</th>
+      <th>End date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for auction in auctions %}
+        <tr>
+                {% if auction.status == "Active" %}
+               <td><a href="/auction/{{ auction.id }}">{{ auction.title }}</a></td>
+               <td>{{ auction.category }}</td>
+               <td>{{ auction.min_price }}</td>
+               <td>{{ auction.status }}</td>
+               <td>{{ auction.starting_date }}</td>
+               <td>{{ auction.end_date }}</td>
+               <td> <a href="/placebid/{{auction.id}}"> place bid</a>   </td>
+                {% endif %}
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

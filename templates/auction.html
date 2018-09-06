@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+    {{ mesg }}
+<table width="60%"  border="1" align="center">
+<tr>
+    <td><h3>Title</h3></td>
+</tr>
+<tr>
+    <td>{{ auction.title }}</td>
+</tr>
+<tr>
+    <td><h3>Category</h3></td>
+</tr>
+<tr>
+    <td>{{ auction.category }}</td>
+</tr>
+<tr>
+    <td><h3>Description</h3></td>
+</tr>
+<tr>
+    <td>{{ auction.description }}</td>
+</tr>
+<tr>
+    <td><h3>Current price</h3></td>
+</tr>
+<tr>
+    <td>{{ auction.min_price }}</td>
+</tr>
+<tr>
+    <td><h3>Start date</h3></td>
+</tr>
+<tr>
+    <td>{{ auction.starting_date }}</td>
+</tr>
+<tr>
+    <td><h3>End date</h3></td>
+</tr>
+<tr>
+    <td>{{ auction.end_date }}</td>
+</tr>
+<tr>
+    <td><h3>Auction owner</h3></td>
+    <td><h3>Current highest bidder</h3></td>
+</tr>
+<tr>
+    <td>{{ auction.seller }}</td>
+    <td>{% if auction.current_bidder %}{{ auction.current_bidder }}{% endif %}</td>
+    <td>{% if auction.status == "Active" %}
+            <a href="/placebid/{{auction.id}}"> Place bid</a></a>
+        {% endif %}</td>
+</tr>
+<tr>
+    <td>{% if auction.seller == user.username %}
+<a href="/editauction/{{auction.id}}"> edit</a>
+        {% endif %}</td>
+    <td>{% if user.is_superuser %}
+            <a href="/ban/{{auction.id}}"> Ban this Auction </a>
+        {% endif %}
+    </td>
+</tr>
+
+</table>
+
+{% endblock %}

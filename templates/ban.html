@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<p><b>Are you sure you want to ban this Auction</b></p>
+
+    <form action="/ban/{{auction.id}}" method="post">
+        {% csrf_token %}
+         {{ form.as_p }}
+        <input type="submit" value="Ban">
+    </form>
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% if error %}
+  {{ error}}
+{% endif %}
+<table width="60%" bgcolor="#daff96" border="1" align="center">
+    <tr>
+        <td>
+            <form action="/createauction/" method="post">
+                {% csrf_token %}
+                 {{ form.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
+{% endblock %}

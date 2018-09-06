@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if error %}
+  {{ error}}
+{% endif %}
+<table width="60%" bgcolor="#daff96" border="1" align="center">
+    <tr>
+        <td>
+            <form action="" method="post">
+                {% csrf_token %}
+                 {{ form.as_p }}
+                <input type="submit" value="Save">
+            </form>
+        </td>
+    </tr>
+</table>
+{% endblock %}

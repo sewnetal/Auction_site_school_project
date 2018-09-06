@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<table width="60%" bgcolor="#daff96" border="1" align="center">
+    <tr>
+        <td>
+            <h2>{{ mesg }}</h2>
+
+                {% csrf_token %}
+            <p>First name:    {{ user.first_name }}</p><br>
+            <p>Last name :    {{ user.last_name }}</p><br>
+            <p>Email     :     {{user.email}}</p><br>
+            <p>Password  :  ************</p><br>
+                <h2><a href="/saveprofile/{{ user.id }}"> Editprofile</a>.</h2>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}
