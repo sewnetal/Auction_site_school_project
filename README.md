@@ -1,5 +1,5 @@
 # Web-application-for-auction
-1. List of implemented requirements <tr>
+1. List of implemented requirements </br>
 UC1 Create a user account
 UC2 Edit user account information
 UC3 Create a new auction 
